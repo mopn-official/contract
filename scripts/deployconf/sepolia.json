@@ -1,0 +1,211 @@
+{
+    "blockScanUrl": "https://sepolia.etherscan.io/",
+    "contracts": [
+        "WETH9",
+        "ERC6551Registry",
+        "TileMath",
+        "NFTSVG",
+        "NFTMetaData",
+        "MOPNGovernance",
+        "MOPNToken",
+        "MOPNERC6551Account",
+        "MOPNERC6551AccountProxy",
+        "MOPNERC6551AccountHelper",
+        "MOPN",
+        "MOPNData",
+        "MOPNCollectionVault",
+        "MOPNAuctionHouse",
+        "MOPNBomb",
+        "MOPNPoint",
+        "MOPNLandMetaDataRender",
+        "MOPNLand",
+        "CryptoPunksMarket",
+        "MOCKNFT"
+    ],
+    "WETH9": {
+        "address": "0xfff9976782d46cc05630d1f6ebab18b2324d6b14",
+        "verified": true
+    },
+    "CryptoPunksMarket": {
+        "address": "0x1B97c77E0De813E816282240ba224E49B51a89c1",
+        "verified": true
+    },
+    "ERC6551Registry": {
+        "address": "0x02101dfB77FDE026414827Fdc604ddAF224F0921",
+        "verified": true
+    },
+    "TileMath": {
+        "address": "0x0ab55a515007c82a60ecD6EF6F149Fa2A6891094",
+        "verified": true
+    },
+    "NFTSVG": {
+        "address": "0x250Cf1c8f112a7872f17C5e8BB5c9E8F0aE55F11",
+        "verified": true
+    },
+    "NFTMetaData": {
+        "address": "0x10C5cD998B2CC795d5D9853F8639a8165c65713e",
+        "verified": true,
+        "libraries": [
+            "TileMath"
+        ]
+    },
+    "MOPNGovernance": {
+        "address": "0xAb464058d6305233cc71E9c446810B3B997D4E36",
+        "verified": true,
+        "attributesCheck": [
+            {
+                "expectValue": [
+                    "MOPNAuctionHouse",
+                    "MOPN",
+                    "MOPNBomb",
+                    "MOPNToken",
+                    "MOPNPoint",
+                    "MOPNLand",
+                    "MOPNData",
+                    "MOPNCollectionVault"
+                ],
+                "attributes": [
+                    "auctionHouseContract",
+                    "mopnContract",
+                    "bombContract",
+                    "tokenContract",
+                    "pointContract",
+                    "landContract",
+                    "dataContract",
+                    "collectionVaultContract"
+                ],
+                "updateMethod": "updateMOPNContracts"
+            },
+            {
+                "expectValue": [
+                    "ERC6551Registry",
+                    "MOPNERC6551AccountProxy",
+                    "MOPNERC6551AccountHelper"
+                ],
+                "attributes": [
+                    "ERC6551Registry",
+                    "ERC6551AccountProxy",
+                    "ERC6551AccountHelper"
+                ],
+                "updateMethod": "updateERC6551Contract"
+            }
+        ]
+    },
+    "MOPNERC6551Account": {
+        "address": "0xf6966EC7D840Cd9861398C97516de0A3Ed69df5d",
+        "verified": true,
+        "constructparams": [
+            "MOPNGovernance"
+        ]
+    },
+    "MOPNERC6551AccountProxy": {
+        "address": "0x10E6D870D2AF151E69d709252080a930C3ec75FC",
+        "verified": true,
+        "constructparams": [
+            "MOPNERC6551Account"
+        ]
+    },
+    "MOPNERC6551AccountHelper": {
+        "address": "0xAC73c2acfD96908242d408200e5725F29407f2E0",
+        "verified": true,
+        "constructparams": [
+            "MOPNGovernance"
+        ]
+    },
+    "MOPNAuctionHouse": {
+        "address": "0x780b36471768a0f918f5EA3991cEcB8868c7856a",
+        "verified": true,
+        "constructparams": [
+            "MOPNGovernance",
+            4884000
+        ]
+    },
+    "MOPN": {
+        "address": "0x3f7E337337257aBfA3BEdbEe15FEaCfda4717E18",
+        "verified": true,
+        "constructparams": [
+            "MOPNGovernance",
+            4884000,
+            "0x6825111dd91dd5b8d352a285d89c87c386d9484a4966373aa1ac4602c506a1fd"
+        ]
+    },
+    "MOPNData": {
+        "address": "0x8D40BE115d9085961ee24735Da770d2F64F159Cf",
+        "verified": true,
+        "constructparams": [
+            "MOPNGovernance"
+        ]
+    },
+    "MOPNBomb": {
+        "address": "0x941Ba91DF46F103C8f60Ee53C866C175529b7d3c",
+        "verified": true,
+        "constructparams": [
+            "MOPNGovernance"
+        ]
+    },
+    "MOPNToken": {
+        "address": "0x90205dC32d976C6c36e5c5578b493dea31599a48",
+        "verified": true,
+        "constructparams": [
+            "MOPNGovernance"
+        ]
+    },
+    "MOPNPoint": {
+        "address": "0x47c9F5271C658669BcDC4aa612999545d7314F8F",
+        "verified": true,
+        "constructparams": [
+            "MOPNGovernance"
+        ]
+    },
+    "MOPNCollectionVault": {
+        "address": "0xE527e71ebf1a70edD37cD8D034b40B19920De9AF",
+        "verified": true,
+        "constructparams": [
+            "MOPNGovernance"
+        ]
+    },
+    "MOPNLand": {
+        "address": "0xFA6Ecf5c83b0B86c4A177CA73E497fB138b1631f",
+        "verified": true,
+        "attributesCheck": [
+            {
+                "expectValue": [
+                    "MOPNLandMetaDataRender"
+                ],
+                "attributes": [
+                    "metadataRenderAddress"
+                ],
+                "updateMethod": "setRender"
+            },
+            {
+                "expectValue": [
+                    "MOPNAuctionHouse"
+                ],
+                "attributes": [
+                    "auctionAddress"
+                ],
+                "updateMethod": "setAuction"
+            }
+        ],
+        "constructparams": [
+            1695636110,
+            "20000000000000000",
+            1001,
+            "0xC9ea36e82C647DC36012c586BF16823D598AFC36",
+            "MOPNLandMetaDataRender",
+            "MOPNAuctionHouse"
+        ]
+    },
+    "MOPNLandMetaDataRender": {
+        "address": "0x4c0947A39d9A8e13866ea9cc8eF5F892a566395B",
+        "verified": true,
+        "libraries": [
+            "TileMath",
+            "NFTMetaData"
+        ]
+    },
+    "MOCKNFT": {
+        "address": "0x2CC76117EE3070aC049dEEF4d704cE4F26a79240",
+        "verified": true
+    }
+}
